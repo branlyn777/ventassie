@@ -125,13 +125,159 @@
                     <td>
                         
                     </td>
+                    <td class="text-right">
+                        {{ number_format($v->utilidad_venta, 2, ",", ".")}}
+                    </td>
+                </tr>
+                @endforeach
+
+
+
+                <tr>
+                    <td colspan="7">
+                        |
+                    </td>
+                </tr>
+
+
+                {{-- Listando los Servicios Entregados --}}
+                @foreach($lista_servicios as $s)
+                <tr>
+                    <td class="text-center">
+                        {{ $loop->iteration }}
+                    </td>
+                    <td class="text-center">
+                        {{ \Carbon\Carbon::parse($s->fecha_creacion)->format('d/m/Y H:i') }}
+                    </td>
+                    <td class="text-center">
+                        {{$s->codigo_servicio}}
+                    </td>
+                    <td class="text-center">
+                        Servicio {{ucwords($s->nombre_cartera)}}
+                    </td>
+                    <td class="text-right">
+                        {{ number_format($s->total_servicio, 2, ",", ".")}}
+                    </td>
                     <td>
+                        
+                    </td>
+                    <td class="text-right">
+                        {{ number_format($s->utilidad_servicio, 2, ",", ".")}}
+                    </td>
+                </tr>
+                @endforeach
+
+
+
+                <tr>
+                    <td colspan="7">
+                        |
+                    </td>
+                </tr>
+
+
+                {{-- Listando los Ingresos --}}
+                @foreach($lista_ingresos as $i)
+                <tr>
+                    <td class="text-center">
+                        {{ $loop->iteration }}
+                    </td>
+                    <td class="text-center">
+                        {{ \Carbon\Carbon::parse($i->fecha_creacion)->format('d/m/Y H:i') }}
+                    </td>
+                    <td class="text-center">
+                        
+                    </td>
+                    <td class="text-center">
+                        Ingreso {{ucwords($i->nombre_cartera)}}
+                    </td>
+                    <td class="text-right">
+                        {{ number_format($i->total_ingreso, 2, ",", ".")}}
+                    </td>
+                    <td class="text-right">
+                        
+                    </td>
+                    <td class="text-right">
+                        {{ number_format($i->total_ingreso, 2, ",", ".")}}
+                    </td>
+                </tr>
+                @endforeach
+
+
+
+                <tr>
+                    <td colspan="7">
+                        |
+                    </td>
+                </tr>
+
+
+                {{-- Listando los Egresos --}}
+                @foreach($lista_egresos as $e)
+                <tr>
+                    <td class="text-center">
+                        {{ $loop->iteration }}
+                    </td>
+                    <td class="text-center">
+                        {{ \Carbon\Carbon::parse($e->fecha_creacion)->format('d/m/Y H:i') }}
+                    </td>
+                    <td class="text-center">
+                        
+                    </td>
+                    <td class="text-center">
+                        Egreso {{ucwords($e->nombre_cartera)}}
+                    </td>
+                    <td class="text-right">
+                        
+                    </td>
+                    <td class="text-right">
+                        {{ number_format($e->total_egreso, 2, ",", ".")}}
+                    </td>
+                    <td class="text-right">
                         
                     </td>
                 </tr>
                 @endforeach
             </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td>
+                        
+                    </td>
+                    <td class="text-center">
+                        <b>TOTAL</b>
+                    </td>
+                    <td class="text-right">
+                        <b>{{ number_format($total_ingresos, 2, ",", ".")}}</b>
+                    </td>
+                    <td class="text-right">
+                        <b>{{ number_format($total_egresos, 2, ",", ".")}}</b>
+                    </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
+
+    <br>
+
+
+    <div class="row">
+
+        <div class="col-12 text-center">
+            
+        </div>
+
+    </div>
+
+
 
 </div>

@@ -548,7 +548,8 @@ class ReportEntregadoServController extends Component
                     ->distinct()
                     ->get();
                     
-                    foreach ($this->data as $serv) {
+                    foreach ($this->data as $serv)
+                    {
                         foreach ($serv->movservices as $mm) {
                             
                             if ($mm->movs->status == 'ACTIVO') {

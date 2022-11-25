@@ -85,6 +85,7 @@ use App\Http\Livewire\DestinoProductoController;
 use App\Http\Livewire\TransferirProductoController;
 use App\Http\Livewire\DestinoController;
 use App\Http\Livewire\ReporteMovimientoGeneral;
+use App\Http\Livewire\ReporteMovimientoGeneralController;
 use App\Http\Livewire\SaleDailyMovementController;
 use App\Http\Livewire\SaleDevolutionController;
 use App\Http\Livewire\SaleStatisticController;
@@ -120,7 +121,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 
-        Route::get('resumenmovimientos2', ReporteMovimientoGeneral::class);
+        Route::get('resumenmovimientos2', ReporteMovimientoGeneralController::class);
 
 
 
