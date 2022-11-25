@@ -84,6 +84,7 @@ use App\Http\Livewire\NotificationController;
 use App\Http\Livewire\DestinoProductoController;
 use App\Http\Livewire\TransferirProductoController;
 use App\Http\Livewire\DestinoController;
+use App\Http\Livewire\ReporteMovimientoGeneral;
 use App\Http\Livewire\SaleDailyMovementController;
 use App\Http\Livewire\SaleDevolutionController;
 use App\Http\Livewire\SaleStatisticController;
@@ -114,6 +115,18 @@ Route::middleware(['auth'])->group(function () {
     Route::group(['middleware' => ['permission:Reporte_Movimientos_General']], function () {
         Route::get('movimientos', ReporteMovimientoController::class)->name('movimiento');
         Route::get('resumenmovimientos', ReporteMovimientoResumenController::class)->name('r_movimiento');
+
+
+
+
+
+        Route::get('resumenmovimientos2', ReporteMovimientoGeneral::class);
+
+
+
+
+
+
         Route::get('ingresoegreso', IngresoEgresoController::class)->name('ingreso_egreso');
         //aaaaa
         Route::get('report/pdfmovdiageneral', [ExportMovDiaGenController::class, 'reportPDFMovDiaGeneral']);
